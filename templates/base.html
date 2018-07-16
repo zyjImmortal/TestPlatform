@@ -1,0 +1,19 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+        <title>自动化测试平台</title>
+    {% endblock %}
+
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+{% block content %}
+
+{% endblock %}
+</body>
+</html>
