@@ -1,13 +1,16 @@
 {% extends 'apitest/apitest_base.html' %}
+{% block api_manage %}
+    <li><a href="{% url 'apitest:api_manage' %}">单一接口测试</a></li>
+{% endblock %}
 {% block body %}
     <div class="row" style="padding-top: 20px">
         <div class="col-md-11">
             <table class="table table-striped">
                 <thead>
                 <tr>
+                    <th>Id</th>
                     <th>所属产品</th>
-                    <th>所属用例</th>
-                    <th>步骤</th>
+                    <th>用例名称</th>
                     <th>URL地址</th>
                     <th>参数=值</th>
                     <th>方法</th>
@@ -17,21 +20,17 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for apistep in apisteps %}
+                {% for api in apis %}
                     <tr>
-                        <td>{{ apistep.ApiTestCase.Product.product_name }}</td>
-                        <td>case{{ apistep.ApiTestCase.id }}:{{ apistep.ApiTestCase.api_case_name }}</td>
-                        <td>{{ apistep.api_step }}:{{ apistep.api_name }}</td>
+                        <td>{{ api.id }}</td>
+                        <td>{{ api.Product.product_name }}</td>
+                        <td>{{ api.api_name }}</td>
                         <td>{{ apistep.api_url }}</td>
                         <td>{{ apistep.api_param }}</td>
                         <td>{{ apistep.api_method }}</td>
                         <td>{{ apistep.api_result }}</td>
                         <td>
-                            {% if apistep.api_status == 1 %}
-                                <a href="" style="color: green">{{ apistep.api_status }}</a>
-                            {% else %}
-                                <a href="" style="color: red">{{ apistep.api_status }}</a>
-                            {% endif %}
+                            {{ api.api_status }}
                         </td>
                         <td>
                             {{ apistep.create_time }}

@@ -7,8 +7,10 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="">流程接口测试</a></li>
-                <li><a href="">流程接口测试步骤</a></li>
+                {% block api_manage %}
+                    <li class="active"><a href="{% url 'apitest:api_manage' %}">流程接口测试</a></li>
+                    <li><a href="{% url 'apitest:step_manage' %}">流程接口测试步骤</a></li>
+                {% endblock %}
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ user }}"></a></li>
