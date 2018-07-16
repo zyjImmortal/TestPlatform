@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+    <ul class="nav navbar-bar navbar-right">
+        <li>欢迎您 <a href="#">{{ user }}</a></li>
+        <li><a href="{% url 'account:logout' %}">退出</a></li>
+    </ul>
+{% endblock %}

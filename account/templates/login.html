@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+<style>
+    body {
+        text-align: center;
+    }
+</style>
+{% block content %}
+    <form action="{% url 'account:login' %}" method="post">{% csrf_token %}
+        <a href="">&nbsp;&nbsp;用户名:</a><input type="text" name="username"><br>
+        <a href="">&nbsp;&nbsp;密 &nbsp;&nbsp; 码:</a><input type="password" name="password"><br>
+        <button type="submit">
+            登录
+        </button>
+    </form>
+{% endblock %}
