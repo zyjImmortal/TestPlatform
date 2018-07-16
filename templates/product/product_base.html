@@ -1,14 +1,5 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>产品自动化测试平台</title>
-    {% load bootstrap4 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-</head>
-<body role="document">
+{% extends 'base.html' %}
+{% block content %}
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fix-top">
     <div class="container">
         <a class="navbar-brand" href="#">&nbsp;</a>
@@ -27,5 +18,4 @@
 {% block product_list %}
 
 {% endblock %}
-</body>
-</html>
+{% endblock %}
