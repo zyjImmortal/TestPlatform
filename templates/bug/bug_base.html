@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fix-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">&nbsp;</a>
+        <ul class="nav justify-content-center"></ul>
+        <ul class="nav justify-content-end">
+            <li class="navbar-link">
+                <a style="color: white" href="#">{{ user }}</a>
+            </li>
+            <li class="navbar-link">
+                <a style="color: white" href="{% url 'account:logout' %}">退出</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+{% block product_list %}
+
+{% endblock %}
+{% endblock %}

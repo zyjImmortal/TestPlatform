@@ -1,0 +1,41 @@
+{% extends 'bug/bug_base.html' %}
+{% block product_list %}
+    <div class="row" style="padding-top: 20px">
+        <div class="col-md-11">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>产品</th>
+                    <th>bug名称</th>
+                    <th>bug详情</th>
+                    <th>解决状态</th>
+                    <th>严重程度</th>
+                    <th>创建人</th>
+                    <th>分配给</th>
+                    <th>创建时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for bug in bugs %}
+                    <tr>
+                        <td>{{ bug.id }}</td>
+                        <td>{{ bug.Product.product_name }}</td>
+                        <td>{{ bug.bug_name }}</td>
+                        <td>{{ bug.bug_detail }}</td>
+                        <td>{{ bug.bug_status }}</td>
+                        <td>{{ bug.bug_level }}</td>
+                        <td>{{ bug.bug_creater }}</td>
+                        <td>{{ bug.bug_assign }}</td>
+                        <td>{{ bug.created_time }}</td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
