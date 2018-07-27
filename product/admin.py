@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from apitest.models import Api
+from api.models import Api
 from product.models import Product
 
 class ApiAdmin(admin.TabularInline):

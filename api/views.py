@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 # Create your views here.
-from apitest.models import ApiTestCase, ApiStep, Api
+from api.models import ApiTestCase, ApiStep, Api
 
 
 @login_required

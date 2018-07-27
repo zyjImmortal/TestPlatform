@@ -37,12 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'apitest.apps.AutotestConfig',
-    'apitest',
+    # 'api.apps.AutotestConfig',
+    'api',
     'account',
     'product',
     'bootstrap4',
-    'bug'
+    'bug',
+    'app',
+    'web'
 ]
 
 MIDDLEWARE = [
@@ -83,8 +85,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'autotestplat',
-        'USER': 'zhouyajun',
-        'PASSWORD': '123456',
+        'USER': 'root',
+        'PASSWORD': '12345678',
         'HOST':'127.0.0.1',
         'PORT':'3306'
     }

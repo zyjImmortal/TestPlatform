@@ -1,0 +1,39 @@
+{% extends 'apptest/app_test_base.html' %}
+
+{% block appcaselist %}
+    <div class="row" style="padding-top: 20px">
+        <div class="col-md-11">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>产品</th>
+                    <th>流程接口用例名称</th>
+                    <th>测试结果</th>
+                    <th>测试负责人</th>
+                    <th>创建时间</th>
+                    <th>测试用例步骤</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for app_case in appcases %}
+                    <tr>
+                        <td>{{ app_case.id }}</td>
+                        <td>{{ app_case.Product.product_name }}</td>
+                        <td>{{ app_case.app_case_name }}</td>
+                        <td>{{ app_case.app_test_result }}</td>
+                        <td>{{ app_case.app_tester }}</td>
+                        <td>{{ app_case.created_time }}</td>
+                        <td><a href="#">{{ app_case.appcase }}</a></td>
+                        <td>{{ app_case.appcase }}</td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

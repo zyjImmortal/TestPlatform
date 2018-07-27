@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from apitest.models import ApiTestCase, Api, ApiStep
+from api.models import ApiTestCase, Api, ApiStep
 
 
 class ApiStepAdmin(admin.TabularInline):

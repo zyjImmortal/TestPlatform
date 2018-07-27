@@ -1,0 +1,48 @@
+{% extends 'apptest/app_test_base.html' %}
+{% block appcaselist %}
+    <div class="row" style="padding-top: 20px">
+        <div class="col-md-11">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>所属产品</th>
+                    <th>所属用例</th>
+                    <th>步骤</th>
+                    <th>定位方式</th>
+                    <th>控件元素</th>
+                    <th>操作方法</th>
+                    <th>测试数据</th>
+                    <th>验证数据</th>
+                    <th>测试结果</th>
+                    <th>创建时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for app_step in app_case_steps %}
+                    <tr>
+                        <td>{{ app_step.AppTestCase.Product.product_name }}</td>
+                        <td>case{{ app_step.AppTestCase.id }}:{{ app_step.AppTestCase.app_case_name }}</td>
+                        <td>{{ app_step.app_test_step }}:{{ app_step.app_test_obj_name }}</td>
+                        <td>{{ app_step.app_find_method }}</td>
+                        <td>{{ app_step.app_element }}</td>
+                        <td>{{ app_step.api_method }}</td>
+                        <td>{{ app_step.app_test_data }}</td>
+                        <td>{{ app_step.app_assert_data }}</td>
+                        <td>
+                            {% if app_step.app_test_result == 1 %}
+                                <a href="" style="color: green">{{ app_step.app_test_result }}</a>
+                            {% else %}
+                                <a href="" style="color: red">{{ app_step.app_test_result }}</a>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {{ app_step.create_time }}
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
