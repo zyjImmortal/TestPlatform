@@ -1,8 +1,17 @@
-{% extends 'apptest/app_test_base.html' %}
-{% block appcaselist %}
-    <div class="row" style="padding-top: 20px">
-        <div class="col-md-11">
-            <table class="table table-striped">
+{% extends "django_sb_admin/base.html" %}{% load static %}{% block sb_admin_title %}App测试步骤管理{% endblock sb_admin_title %}
+{% block sb_admin_subheading %}{% endblock sb_admin_subheading %}
+{% block sb_admin_breadcrumb %}<i class="fa fa-dashboard"></i>
+    <a href="{% url 'manage:sb_admin_index' %}">Dashboard</a>{% endblock sb_admin_breadcrumb %}
+{% block sb_admin_breadcrumb_active %}
+    <li class="active">
+        <i class="fa fa-table"></i> App测试步骤管理
+    </li>
+{% endblock sb_admin_breadcrumb_active %}
+{% block sb_admin_content %}
+    <div class="row">
+        <div class="table-responsive">
+            <div class="col-md-12">
+            <table class="table table-striped table-hover">
                 <thead>
                 <tr>
                     <th>所属产品</th>
@@ -43,6 +52,7 @@
 
                 </tbody>
             </table>
+        </div>
         </div>
     </div>
 {% endblock %}

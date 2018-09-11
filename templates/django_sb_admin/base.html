@@ -179,23 +179,44 @@
                     <li {% if nav_active == "charts" %}class="active"{% endif %}>
                         <a href="{% url "manage:sb_admin_charts" %}"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
                     </li>
-                    <li {% if nav_active == "tables" %}class="active"{% endif %}>
+                    <li {% if nav_active == "product" %}class="active"{% endif %}>
                         <a href="{% url "product:manage" %}"><i class="fa fa-fw"></i>产品管理</a>
                     </li>
 
-                    <li {% if nav_active == "tables" %}class="active"{% endif %}>
-                        <a href="{% url "manage:sb_admin_tables" %}"><i class="fa fa-fw"></i>接口测试管理</a>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#api"><i
+                                class="fa fa-fw"></i>接口测试管理<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="api" class="collapse">
+                            <li>
+                                <a href="{% url 'apitest:api_manage' %}" {% if nav_active == "api_namage" %}class="active"{% endif %}>Api管理</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'apitest:step_manage' %}" {% if nav_active == "api_step" %}class="active"{% endif %}>Api测试步骤管理</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'apitest:api_case_manage' %}" {% if nav_active == "aip_case_manage" %}class="active"{% endif %}>Api测试场景管理</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li {% if nav_active == "tables" %}class="active"{% endif %}>
-                        <a href="{% url "manage:sb_admin_tables" %}"><i class="fa fa-fw"></i>App测试管理</a>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#app"><i
+                                class="fa fa-fw"></i>App测试管理<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="app" class="collapse">
+                            <li>
+                                <a href="{% url 'app:app_case_manage' %}" {% if nav_active == "app_case_manage" %}class="active"{% endif %}>App测试场景管理</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'app:app_case_step_manage' %}" {% if nav_active == "app_step" %}class="active"{% endif %}>App测试步骤管理</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li {% if nav_active == "tables" %}class="active"{% endif %}>
+                    <li {% if nav_active == "web" %}class="active"{% endif %}>
                         <a href="{% url "manage:sb_admin_tables" %}"><i class="fa fa-fw"></i>Web测试管理</a>
                     </li>
-                    <li {% if nav_active == "tables" %}class="active"{% endif %}>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i
+                    <li {% if nav_active == "performance" %}class="active"{% endif %}>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#performance"><i
                                 class="fa fa-fw"></i> 性能测试管理 <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
+                        <ul id="performance" class="collapse">
                             <li>
                                 <a href="#">接口性能测试</a>
                             </li>
@@ -204,8 +225,8 @@
                             </li>
                         </ul>
                     </li>
-                    <li {% if nav_active == "tables" %}class="active"{% endif %}>
-                        <a href="{% url "manage:sb_admin_tables" %}"><i class="fa fa-fw"></i>Bug管理</a>
+                    <li {% if nav_active == "bug" %}class="active"{% endif %}>
+                        <a href="{% url "bug:bug_manage" %}"><i class="fa fa-fw"></i>Bug管理</a>
                     </li>
                     <li {% if nav_active == "forms" %}class="active"{% endif %}>
                         <a href="{% url "manage:sb_admin_forms" %}"><i class="fa fa-fw fa-edit"></i> Forms</a>
@@ -228,7 +249,8 @@
                         <a href="{% url "manage:sb_admin_blank" %}"><i class="fa fa-fw fa-file"></i> Blank</a>
                     </li>
                 </ul>
-            </div>{% endblock sb_admin_sidebar %}
+            </div>
+        {% endblock sb_admin_sidebar %}
         <!-- /.navbar-collapse -->
     </nav>
 
@@ -277,27 +299,27 @@
                 </div>
             {% endif %}
             {% block sb_admin_content %}
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="alert alert-info alert-dismissable">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <i class="fa fa-info-circle"></i> <strong>Django SB Admin</strong> This and everything below
-                            is inside <code>sb_admin_content</code> block.
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h2 class="page-header">Django SB Admin</h2>
-                        <p class="lead">Reusable Django application providing SB Admin dashboard theme, but also some
-                            other bootstrap related extras (for now it is only a login snippet).</p>
-                        <h5>List of resources</h5>
-                        <h6>Font Awesome</h6>
-                        <p class="">You can find list of all awesome icons <a
-                                href="https://fortawesome.github.io/Font-Awesome/icons/">here</a>.
-                    </div>
-                </div>
-                {% include "django_sb_admin/login.html" %}
+{#                <div class="row">#}
+{#                    <div class="col-lg-12">#}
+{#                        <div class="alert alert-info alert-dismissable">#}
+{#                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>#}
+{#                            <i class="fa fa-info-circle"></i> <strong>Django SB Admin</strong> This and everything below#}
+{#                            is inside <code>sb_admin_content</code> block.#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="row">#}
+{#                    <div class="col-lg-12">#}
+{#                        <h2 class="page-header">Django SB Admin</h2>#}
+{#                        <p class="lead">Reusable Django application providing SB Admin dashboard theme, but also some#}
+{#                            other bootstrap related extras (for now it is only a login snippet).</p>#}
+{#                        <h5>List of resources</h5>#}
+{#                        <h6>Font Awesome</h6>#}
+{#                        <p class="">You can find list of all awesome icons <a#}
+{#                                href="https://fortawesome.github.io/Font-Awesome/icons/">here</a>.#}
+{#                    </div>#}
+{#                </div>#}
+{#                {% include "django_sb_admin/login.html" %}#}
             {% endblock sb_admin_content %}
 
         </div>

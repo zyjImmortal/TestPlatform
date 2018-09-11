@@ -9,17 +9,21 @@ from api.models import ApiTestCase, ApiStep, Api
 def api_test_manage(request):
     api_tests = ApiTestCase.objects.all()
     username = request.session.get('user', '')
-    return render(request, 'apitest/apitest_manage.html', {'apitests': api_tests, 'user': username})
+    return render(request, 'apitest/apitest_manage.html',
+                  {'apitests': api_tests, 'user': username, 'nav_active': 'api_case_manage'})
 
 
 @login_required
 def api_step_manage(request):
     api_steps = ApiStep.objects.all()
     username = request.session.get('user', '')
-    return render(request, 'apitest/apitest_manage.html', {'apisteps': api_steps, 'user': username})
+    return render(request, 'apitest/apitest_manage.html',
+                  {'apisteps': api_steps, 'user': username, 'nav_active': 'api_step'})
 
 
+@login_required
 def api_manage(request):
     apis = Api.objects.all()
     username = request.session.get('user', '')
-    return render(request, 'apitest/api_manage.html', {'apis': apis, 'user': username})
+    return render(request, 'apitest/api_manage.html',
+                  {'apis': apis, 'user': username, 'nav_active': 'api_manage'})

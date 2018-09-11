@@ -7,7 +7,7 @@ from api import views
 app_name = 'apitest'
 
 urlpatterns = [
-    path('cases/', views.api_test_manage, name='api_manage'),
+    path('cases/', views.api_test_manage, name='api_case_manage'),
     path('step/', views.api_step_manage, name='step_manage'),
     path('manage/', views.api_manage, name='api_manage')
 ]

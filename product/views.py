@@ -7,4 +7,5 @@ from product.models import Product
 def product_manage(request):
     username = request.session.get('user')
     products = Product.objects.all()
-    return render(request, 'product/product_manage.html', {"user":username, "products":products})
+    return render(request, 'product/product_manage.html',
+                  {"user": username, "products": products, 'nav_active': 'product'})
