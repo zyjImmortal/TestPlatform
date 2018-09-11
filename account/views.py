@@ -16,13 +16,14 @@ def login(request):
             response = HttpResponseRedirect('/home/')
             return response
         else:
-            return render(request, 'account/login.html', {'error': 'username or password is error'})
-    return render(request, 'account/login.html')
+            return render(request, 'django_sb_admin/login.html', {'error': 'username or password is error'})
+    return render(request, 'django_sb_admin/examples/login.html')
 
 
 def home(request):
-    return render(request, 'account/home.html')
+    return render(request, 'django_sb_admin/start.html')
+
 
 def logout(request):
     auth.logout(request)
-    return render(request, 'account/login.html')
+    return render(request, 'django_sb_admin/examples/login.html')

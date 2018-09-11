@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
@@ -24,9 +23,8 @@ SECRET_KEY = 'go#cgnhl)dxdkewv9na2p)=cnt(%)$-luk+*w+xevti=x)3cle'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+LOGIN_URL = 'account/login/'
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -44,7 +42,8 @@ INSTALLED_APPS = [
     'bootstrap4',
     'bug',
     'app',
-    'web'
+    'web',
+    'django_sb_admin'
 ]
 
 MIDDLEWARE = [
@@ -77,21 +76,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'TestPlatform.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'autotestplat',
+        'NAME': 'test_plateform_demo',
         'USER': 'root',
-        'PASSWORD': '12345678',
-        'HOST':'127.0.0.1',
-        'PORT':'3306'
+        'PASSWORD': '123456',
+        'HOST': '47.92.76.78',
+        'PORT': '3306'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -111,7 +108,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
@@ -125,10 +121,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
-TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)

@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/nav.css">
     {% block title %}
         <title>自动化测试平台</title>
     {% endblock %}
@@ -12,8 +13,77 @@
     {% bootstrap_javascript %}
 </head>
 <body>
-{% block content %}
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand text-info" href="#">自动化测试平台&nbsp;</a>
+        <ul class="nav justify-content-center"></ul>
+        <ul class="nav justify-content-end">
+            <li class="navbar-link">
+                <a style="color: white" href="#">{{ user }}</a>
+            </li>
+            {% if user.is_authenticated %}
+                <li class="navbar-link">
+                    <a style="color: white" href="{% url 'account:logout' %}">退出</a>
+                </li>
+            {% endif %}
 
-{% endblock %}
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div id="accordion">
+                <div class="nav">
+                    <ul>
+
+                        <li class="nav-item">
+                            <a href="home.aspx"><i class="glyphicon glyphicon-th-large"></i>首页 </a>
+                            <a href="javascript:;"><i class="my-icon nav-icon icon_3"></i><span>接口测试管理</span><i
+                                    class="my-icon nav-more"></i></a>
+                            <ul>
+                                <li><a href="BillQuery.aspx"><span>接口场景管理</span></a></li>
+                                <li><a href="javascript:;"><span>单接口管理</span></a></li>
+                                <li><a href="Charge_Statistical.aspx"><span>统计</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:;"><i class="my-icon nav-icon icon_2"></i><span>app测试管理</span><i
+                                    class="my-icon nav-more"></i></a>
+                            <ul>
+                                <li><a href="CreateBill.aspx"><span>成功扣款查询</span></a></li>
+                                <li><a href="index.aspx"><span>失败扣款查询</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:;"><i class="my-icon nav-icon icon_2"></i><span>web测试管理</span><i
+                                    class="my-icon nav-more"></i></a>
+                            <ul>
+                                <li><a href="CreateBill.aspx"><span>贷款录入</span></a></li>
+                                <li><a href="index.aspx"><span>贷款到账确认</span></a></li>
+                                <li><a href="index.aspx"><span>贷款查询</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item" style="width: 210px">
+                            <a href="javascript:;"><i class="my-icon nav-icon icon_1"></i><span>产品管理</span><i
+                                    class="my-icon nav-more"></i></a>
+                            <ul>
+                                <li><a href="UserManage.aspx"><span>用户管理</span></a></li>
+                                <li><a href="javascript:;"><span>日志管理</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+
 </body>
 </html>

@@ -1,11 +1,12 @@
 from django.db import models
 
+
 # Create your models here.
 
 class Bug(models.Model):
     bug_name = models.CharField('bug名称', max_length=100)
     bug_detail = models.CharField('详情', max_length=200)
-    BUG_STATUS = (('激活', '激活'),('已解决', '已解决'),('已关闭', '已关闭'))
+    BUG_STATUS = (('激活', '激活'), ('已解决', '已解决'), ('已关闭', '已关闭'))
     bug_status = models.CharField(verbose_name='解决状态', choices=BUG_STATUS,
                                   default=BUG_STATUS[0][0], max_length=200, null=True)
     BUG_LEVEL = (('1', '1'), ('2', '2'), ('3', '3'))
@@ -14,12 +15,14 @@ class Bug(models.Model):
     bug_assign = models.CharField('分配给', max_length=200)
     created_time = models.DateTimeField('创建时间', auto_now=True)
     product = models.ForeignKey('product.Product', on_delete=models.CASCADE, null=True)
+
     class Meta:
         verbose_name = 'bug管理'
         verbose_name_plural = 'bug管理'
 
     def __str__(self):
         return self.bug_name
+
 
 if __name__ == '__main__':
     print(Bug.__dict__)

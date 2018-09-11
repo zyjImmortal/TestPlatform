@@ -1,0 +1,13 @@
+@media (min-width: 768px) {
+    #accordion {
+        width: 200px;
+        height: 100%;
+        margin-top: 0px;
+        position: absolute;
+        z-index: 1;
+    }
+
+    .page_admin {
+        margin-left: 225px;
+    }
+}

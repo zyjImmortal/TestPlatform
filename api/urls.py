@@ -4,7 +4,7 @@
 from django.urls import path
 from api import views
 
-app_name = 'api'
+app_name = 'apitest'
 
 urlpatterns = [
     path('cases/', views.api_test_manage, name='api_manage'),

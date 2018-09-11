@@ -1,25 +1,10 @@
 {% extends 'base.html' %}
-<body role="document">
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <a href="" class="navbar-brand">自动化测试平台</a>
-        </div>
-        <div class="collapse navbar-collapse" id="navbar">
-            <ul class="nav navbar-nav">
-                {% block api_manage %}
-                    <li class="active"><a href="{% url 'apitest:api_manage' %}">流程接口测试</a></li>
-                    <li><a href="{% url 'apitest:step_manage' %}">流程接口测试步骤</a></li>
-                {% endblock %}
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ user }}"></a></li>
-                <li><a href="{% url 'account:logout' %}">退出</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+{% block content %}
+
 {% block body %}
 
 {% endblock %}
-</body>
+{% endblock %}
+{#<body role="document">#}
+{##}
+{#</body>#}

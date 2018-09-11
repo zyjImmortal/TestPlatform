@@ -19,9 +19,10 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include('account.urls', namespace='account')),
-    path('api/', include('api.urls', namespace='api')),
+    path('api/', include('api.urls', namespace='apitest')),
     path('product/', include('product.urls', namespace='product')),
     path('bug/', include('bug.urls', namespace='bug')),
     path('app/', include('app.urls', namespace='app')),
-    path('web/', include('web.urls', namespace='web'))
+    path('web/', include('web.urls', namespace='web')),
+    path('manage/', include('django_sb_admin.urls', namespace='manage'))
 ]
