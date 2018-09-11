@@ -24,5 +24,6 @@ urlpatterns = [
     path('bug/', include('bug.urls', namespace='bug')),
     path('app/', include('app.urls', namespace='app')),
     path('web/', include('web.urls', namespace='web')),
-    path('manage/', include('django_sb_admin.urls', namespace='manage'))
+    path('manage/', include('django_sb_admin.urls', namespace='manage')),
+    path('tool/', include('tool.urls', namespace='tool'))
 ]
